@@ -1,0 +1,35 @@
+const Sequelize=require('sequelize');
+
+const sequelize=require('../utils/database');
+
+const User=sequelize.define('user',{
+    id:{
+        type:Sequelize.INTEGER,
+        primaryKey:true,
+        allowNull:false,
+        autoIncrement:true
+    },
+    email:{
+        type:Sequelize.STRING,
+        allowNull:false,
+        unique:true
+    },
+    name:{
+        type:Sequelize.STRING,
+        allowNull:false
+    },
+    password:{
+        type:Sequelize.STRING,
+        allowNull:false
+    },
+    ispremium:{
+        type:Sequelize.BOOLEAN,
+    },
+    totalExpense:{
+        type:Sequelize.INTEGER,
+        allowNull: false,
+        defaultValue: 0
+    }
+});
+
+module.exports=User;
